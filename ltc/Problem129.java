@@ -16,10 +16,15 @@ class Problem129
         if(root == null)
             return 0;
         
+        // at each step we multiply the previous steps by 10 to increment the place
         path = (path * 10) + root.val;
+
+        // if we're at a leaf node nothing else to do
         if(root.left == null && root.right == null)
             return path;
-        return sumPath(root.left,path) + sumPath(root.right,path);
+
+        // add both children paths at each step
+        return sumPath(root.left, path) + sumPath(root.right, path);
     }
 
     public static final class TreeNode 
